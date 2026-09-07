@@ -1,0 +1,29 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+*.aar
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Local configuration
+local.properties
+
+# Firebase config -- keep this out of a public repo. Add your own copy
+# locally (see README "Connecting Firebase"); it isn't tracked here.
+app/google-services.json
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Log files
+*.log

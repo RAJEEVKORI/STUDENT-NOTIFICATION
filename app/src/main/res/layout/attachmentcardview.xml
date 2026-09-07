@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    card_view:cardBackgroundColor="#ffffff"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="1dp"
+    card_view:cardUseCompatPadding="false">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10">
+        <ImageView
+            android:id="@+id/type"
+            android:padding="4dp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_insert_link_24"
+            android:layout_weight="1"/>
+        <TextView
+            android:textAppearance="@style/Widget.AppCompat.Spinner.Underlined"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/link"
+            android:paddingRight="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="File Name"
+            android:layout_weight="8"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/delete"
+            android:padding="4dp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_delete"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

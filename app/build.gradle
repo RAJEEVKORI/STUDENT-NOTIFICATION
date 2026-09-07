@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.studentdepartment'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.studentdepartment"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // --- AndroidX / Material ---
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.11.0'
+
+    // --- Firebase (Realtime Database + Storage + Auth SDK) ---
+    // The BoM (Bill of Materials) keeps all Firebase library versions
+    // compatible with each other -- you don't set a version number on the
+    // individual firebase-* lines below, it comes from the BoM.
+    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    // Only the base Auth SDK is included (PostCommentActivty checks
+    // FirebaseAuth.getCurrentUser() to look up a display name). The
+    // FirebaseUI sign-in screens found in the original APK were never
+    // actually called from anywhere in the app's own code, so they're
+    // left out here -- add com.firebaseui:firebase-ui-auth later if you
+    // wire up real sign-in.
+    implementation 'com.google.firebase:firebase-auth'
+
+    // FirebaseUI Database -- powers the live-updating notice list in
+    // NoticeActivity (FirebaseRecyclerAdapter / FirebaseRecyclerOptions).
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
+    // --- Image loading ---
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+    // --- Small third-party UI libraries used in the original app ---
+    implementation 'com.github.clans:fab:1.6.4'                  // FloatingActionMenu (attach button)
+    implementation 'com.borjabravo:readmoretextview:2.1.0'       // expandable question text
+    implementation 'com.github.hsmnzaydn:imagezoom:1.5.0'        // pinch-to-zoom image preview
+    implementation 'com.rbddevs.splashy:splashy:1.3.0'           // splash screen
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24' // required by Splashy in a Java-only project
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+// Firebase isn't connected yet on purpose (see README "Connecting Firebase").
+// Once you've added your own app/google-services.json, uncomment the line
+// below to actually wire it into the build.
+// apply plugin: 'com.google.gms.google-services'
